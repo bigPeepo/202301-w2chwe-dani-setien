@@ -1,12 +1,12 @@
-import findRowLength from "./rowLength.js";
+import findRowLength from "./findRowLength.js";
 
 describe("Given a function findRowLength", () => {
   describe("When it receives the array [0,0,0,0,0,0,0,0,0]", () => {
     test("Then it should return 3", () => {
-      const array = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+      const givenArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       const expectedResult = 3;
 
-      const result = findRowLength(array);
+      const result = findRowLength(givenArray);
 
       expect(result).toBe(expectedResult);
     });

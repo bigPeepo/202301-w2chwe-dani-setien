@@ -1,15 +1,17 @@
 const findRowLength = (board) => {
-  if (Math.sqrt(board.length) % 1) {
+  const flatBoard = board.flat(board.length);
+
+  if (Math.sqrt(flatBoard.length) % 1) {
     throw new Error(
       "The board doesn't have a perfect square number of squares"
     );
   }
 
-  if (board.length < 9) {
+  if (flatBoard.length < 9) {
     throw new Error("This board is too small");
   }
 
-  return Math.sqrt(board.length);
+  return Math.sqrt(flatBoard.length);
 };
 
 export default findRowLength;

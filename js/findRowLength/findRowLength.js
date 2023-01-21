@@ -1,5 +1,5 @@
 const findRowLength = (board) => {
-  const flatBoard = board.flat(board.length);
+  const flatBoard = board.flat(board.length) || [1, 2, 3];
 
   if (Math.sqrt(flatBoard.length) % 1) {
     throw new Error(

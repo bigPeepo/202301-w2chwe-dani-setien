@@ -1,20 +1,38 @@
-import makeCartesianBoard from "../makeCartesianBoard/makeCartesianBoard.js";
 import findCartesianCoordinates from "../findCartesianCoordinates/findCartesianCoordinates.js";
 
-const countAdjacentAliveCells = (cellPosition, board) => {
-  const cartesianBoard = makeCartesianBoard(board);
-  const cartesianCoordinates = findCartesianCoordinates(cellPosition, board);
-  const x = cartesianCoordinates[0];
-  const y = cartesianCoordinates[1];
+const countAdjacentAliveCells = (examinedCellPosition, board) => {
+  const examinedCellCoordinates = findCartesianCoordinates(
+    examinedCellPosition,
+    board
+  );
+  const examinedCellX = examinedCellCoordinates[0];
+  const examinedCellY = examinedCellCoordinates[1];
 
-  const arrayToSum = [];
+  let counter = 0;
+  board.forEach((cellValue, cellPosition) => {
+    const cellCoordinates = findCartesianCoordinates(cellPosition, board);
+    const cellXCoordinate = cellCoordinates[0];
+    const cellYCoordinate = cellCoordinates[1];
+    const neighborDistance = 1;
 
-  arrayToSum.push(cartesianBoard[y].slice(x - 1, x));
-  arrayToSum.push(cartesianBoard[y].slice(x + 1));
-  arrayToSum.push(cartesianBoard[y - 1].slice(x - 1, x + 2));
-  arrayToSum.push(cartesianBoard[y + 1].slice(x - 1, x + 2));
+    if (
+      cellXCoordinate >= examinedCellX - neighborDistance &&
+      cellXCoordinate <= examinedCellX + neighborDistance &&
+      cellYCoordinate >= examinedCellY - neighborDistance &&
+      cellYCoordinate <= examinedCellY + neighborDistance &&
+      cellValue
+    ) {
+      if (
+        !(
+          examinedCellX === cellXCoordinate && examinedCellY === cellYCoordinate
+        )
+      ) {
+        counter++;
+      }
+    }
+  });
 
-  return arrayToSum.flat().reduce((accumulator, cell) => accumulator + cell, 0);
+  return counter;
 };
 
 export default countAdjacentAliveCells;

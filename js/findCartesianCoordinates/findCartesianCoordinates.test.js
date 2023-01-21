@@ -1,14 +1,14 @@
 import findCartesianCoordinates from "./findCartesianCoordinates.js";
 
 describe("Given a findCartesianCoordinates function", () => {
-  describe(`When it receives the position 4 and an unarranged board in list form 
+  describe(`When it receives the position 2 and an unarranged board in list form 
   [0,1,2,
    3,4,5,
    6,7,8]`, () => {
     test("Then it should return its [x,y] coordinates as [1,1]", () => {
       const givenUnarrangedBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-      const givenPosition = 4;
-      const expectedCoordinates = [1, 1];
+      const givenPosition = 2;
+      const expectedCoordinates = [0, 2];
 
       const result = findCartesianCoordinates(
         givenPosition,

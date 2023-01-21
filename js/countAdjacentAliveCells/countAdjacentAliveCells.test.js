@@ -1,4 +1,4 @@
-import countAdjacentAliveCells from "./countAdjacentAliveCells";
+import countAdjacentAliveCells from "./countAdjacentAliveCells.js";
 
 describe("Given a function countAdjacentAliveCells", () => {
   describe("When counting the 1s adjacent to the central position, nº 12 of the array [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0]", () => {

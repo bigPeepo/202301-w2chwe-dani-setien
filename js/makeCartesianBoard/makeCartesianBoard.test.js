@@ -2,10 +2,7 @@ import makeCartesianBoard from "./makeCartesianBoard";
 
 describe("Given a function makeCartesianBoard", () => {
   describe("When it receives the array [0,0,0,0,0,0,0,0,0]", () => {
-    test(`Then it should return 
-    [0,0,0,
-     0,0,0
-     0,0,0]`, () => {
+    test("Then it should return [0,0,0,0,0,00,0,0]", () => {
       const givenArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       const expectedBoard = [
         [0, 0, 0],
@@ -20,7 +17,7 @@ describe("Given a function makeCartesianBoard", () => {
   });
 
   describe("When it receives the array [0,0,0,0,0,0,0,0,0] and is asked about the resulting cartesian board length property", () => {
-    test(`Then it should return 3`, () => {
+    test("Then it should return 3", () => {
       const givenArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       const expectedBoardLength = 3;
 
@@ -31,7 +28,7 @@ describe("Given a function makeCartesianBoard", () => {
   });
 
   describe("When it receives the array [0,0,0,0,0,0,0,0,0] is asked if every resulting subarray has the same length", () => {
-    test(`Then it should return true`, () => {
+    test("Then it should return true", () => {
       const givenArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       const expectedLengthUniformity = true;
       const expectedBoardLength = 3;

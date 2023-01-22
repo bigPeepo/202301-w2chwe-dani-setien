@@ -31,5 +31,8 @@
         ]
       }
     }
+  },
+  "dependencies": {
+    "@fontsource/kanit": "^4.5.10"
   }
 }

@@ -1,3 +1,5 @@
+import colorCell from "../colorCell/colorCell.js";
+
 const insertBoardOnHtml = (board, htmlElement) => {
   board.forEach((element) => {
     const cellLine = document.createElement("ul");
@@ -10,6 +12,8 @@ const insertBoardOnHtml = (board, htmlElement) => {
       cellLine.appendChild(cell);
 
       cell.innerText = element[i];
+
+      colorCell(element[i], cell);
     }
   });
 };

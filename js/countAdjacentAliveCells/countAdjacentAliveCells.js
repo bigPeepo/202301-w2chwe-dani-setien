@@ -1,30 +1,30 @@
 import findCartesianCoordinates from "../findCartesianCoordinates/findCartesianCoordinates.js";
 
-const countAdjacentAliveCells = (examinedCellPosition, board) => {
-  const examinedCellCoordinates = findCartesianCoordinates(
-    examinedCellPosition,
+const countAdjacentAliveCells = (cellPosition, board) => {
+  const examinedCellCartesianCoordinates = findCartesianCoordinates(
+    cellPosition,
     board
   );
-  const examinedCellX = examinedCellCoordinates[0];
-  const examinedCellY = examinedCellCoordinates[1];
+  const examinedCellX = examinedCellCartesianCoordinates[0];
+  const examinedCellY = examinedCellCartesianCoordinates[1];
 
   let counter = 0;
   board.forEach((cellValue, cellPosition) => {
-    const cellCoordinates = findCartesianCoordinates(cellPosition, board);
-    const cellXCoordinate = cellCoordinates[0];
-    const cellYCoordinate = cellCoordinates[1];
-    const neighborDistance = 1;
+    const cartesianCoordinates = findCartesianCoordinates(cellPosition, board);
+    const potentialNeighborXCoordinate = cartesianCoordinates[0];
+    const potentialNeighborYCoordinate = cartesianCoordinates[1];
 
     if (
-      cellXCoordinate >= examinedCellX - neighborDistance &&
-      cellXCoordinate <= examinedCellX + neighborDistance &&
-      cellYCoordinate >= examinedCellY - neighborDistance &&
-      cellYCoordinate <= examinedCellY + neighborDistance &&
+      potentialNeighborXCoordinate >= examinedCellX - 1 &&
+      potentialNeighborXCoordinate <= examinedCellX + 1 &&
+      potentialNeighborYCoordinate >= examinedCellY - 1 &&
+      potentialNeighborYCoordinate <= examinedCellY + 1 &&
       cellValue
     ) {
       if (
         !(
-          examinedCellX === cellXCoordinate && examinedCellY === cellYCoordinate
+          examinedCellX === potentialNeighborXCoordinate &&
+          examinedCellY === potentialNeighborYCoordinate
         )
       ) {
         counter++;

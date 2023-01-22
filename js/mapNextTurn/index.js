@@ -1,4 +1,8 @@
 import countAdjacentAliveCells from "../countAdjacentAliveCells/countAdjacentAliveCells.js";
+import {
+  detectStillConfiguration,
+  storePreviousBoard,
+} from "../detectStillConfiguration/detectStillConfiguration.js";
 
 export const cellStatusNextTurn = (cellStatus, position, board) => {
   const adjacentAliveCellsCount = countAdjacentAliveCells(position, board);
@@ -21,8 +25,15 @@ export const cellStatusNextTurn = (cellStatus, position, board) => {
 };
 
 export const mapNextTurn = (board) => {
+  storePreviousBoard.push(board);
+
   board = board.map((cell, position, board) =>
     cellStatusNextTurn(cell, position, board)
   );
+
+  storePreviousBoard.push(board);
+
+  detectStillConfiguration();
+
   return board;
 };

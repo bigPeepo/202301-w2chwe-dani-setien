@@ -1,4 +1,5 @@
 import colorCell from "../colorCell/colorCell.js";
+import { storePreviousBoard } from "../detectStillConfiguration/index.js";
 
 const insertBoardOnHtml = (board, htmlElement) => {
   board.forEach((element) => {
@@ -16,6 +17,7 @@ const insertBoardOnHtml = (board, htmlElement) => {
       colorCell(element[i], cell);
     }
   });
+  storePreviousBoard.push(board.flat());
 };
 
 export default insertBoardOnHtml;

@@ -2,7 +2,7 @@ import countAdjacentAliveCells from "../countAdjacentAliveCells/countAdjacentAli
 import {
   detectStillConfiguration,
   storePreviousBoard,
-} from "../detectStillConfiguration/detectStillConfiguration.js";
+} from "../detectStillConfiguration/index.js";
 
 export const cellStatusNextTurn = (cellStatus, position, board) => {
   const adjacentAliveCellsCount = countAdjacentAliveCells(position, board);

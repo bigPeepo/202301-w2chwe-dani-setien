@@ -1,9 +1,21 @@
-import findRowLength from "./findRowLength/findRowLength.js";
 import makeCartesianBoard from "./makeCartesianBoard/makeCartesianBoard.js";
-import findCartesianCoordinates from "./findCartesianCoordinates/findCartesianCoordinates.js";
+import { mapNextTurn } from "./mapNextTurn/index.js";
+import insertBoardOnHtml from "./insertBoardOnHtml/insertBoardOnHtml.js";
+import mutateBoardOnHtml from "./mutateBoardOnHtml/mutateBoardOnHtml.js";
 
-const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+let seedBoard = [
+  0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,
+  0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0,
+  0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1,
+  0, 0, 0,
+];
+const main = document.getElementsByClassName("main");
 
-console.table(findRowLength(board));
-console.table(makeCartesianBoard(board));
-console.table(findCartesianCoordinates(6, board));
+insertBoardOnHtml(makeCartesianBoard(seedBoard), main);
+
+// eslint-disable-next-line no-unused-vars
+const makeTheBoardEvolve = setInterval(() => {
+  seedBoard = mapNextTurn(seedBoard);
+
+  mutateBoardOnHtml(makeCartesianBoard(seedBoard));
+}, 200);

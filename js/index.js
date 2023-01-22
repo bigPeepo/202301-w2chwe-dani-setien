@@ -3,6 +3,7 @@ import { mapNextTurn } from "./mapNextTurn/index.js";
 import insertBoardOnHtml from "./insertBoardOnHtml/insertBoardOnHtml.js";
 import mutateBoardOnHtml from "./mutateBoardOnHtml/mutateBoardOnHtml.js";
 import { randomSeedRowLength } from "./randomSeed/index.js";
+import { storePreviousBoard } from "./detectStillConfiguration/index.js";
 
 export const colorBackground = "#f5f2f0";
 export const colorAliveCell = "#696f6a";
@@ -12,12 +13,23 @@ let seedBoard = randomSeedRowLength(9);
 
 insertBoardOnHtml(makeCartesianBoard(seedBoard), main);
 
-const makeTheBoardEvolve = setInterval(() => {
-  seedBoard = mapNextTurn(seedBoard);
+let makeTheBoardEvolve = false;
 
-  mutateBoardOnHtml(makeCartesianBoard(seedBoard));
-}, 250);
+function activateBoardEvolution(seed) {
+  seedBoard = seed;
+  makeTheBoardEvolve = setInterval(() => {
+    seedBoard = mapNextTurn(seedBoard);
+
+    mutateBoardOnHtml(makeCartesianBoard(seedBoard));
+  }, 171);
+}
 
 export const stopCalculating = () => {
   clearInterval(makeTheBoardEvolve);
+
+  storePreviousBoard.splice(-3);
+
+  activateBoardEvolution(randomSeedRowLength(9));
 };
+
+activateBoardEvolution(seedBoard);

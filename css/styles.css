@@ -21,8 +21,9 @@ body {
   align-items: center;
   background-color: var(--color-background);
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -32,6 +33,14 @@ head {
 
 title {
   display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 10rem;
 }
 
 ul,
@@ -56,4 +65,8 @@ ul > li {
   position: absolute;
   opacity: 0;
   background-color: var(--color-background);
+}
+
+.audio-controls {
+  margin-top: 4rem;
 }

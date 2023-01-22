@@ -5,6 +5,7 @@ const mutateBoardOnHtml = (board) => {
     for (let j = 0; j < board[i].length; j++) {
       const thisCell =
         document.querySelectorAll(".main")[0].childNodes[i].childNodes[j];
+
       thisCell.innerText = board[i][j];
 
       colorCell(board[i][j], thisCell);

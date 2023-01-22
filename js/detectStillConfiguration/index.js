@@ -1,4 +1,8 @@
-import fadeOutThisBoard from "../fadeOutThisBoard/fadeOutThisBoard.js";
+import {
+  flickThisBoard,
+  activateScreenFlick,
+  objectToFlickScreen,
+} from "../flickThisBoard/flickThisBoard.js";
 
 export const storePreviousBoard = [];
 
@@ -8,7 +12,10 @@ export const detectStillConfiguration = () => {
   const currentBoard = storePreviousBoard[2];
 
   if (JSON.stringify(twoBoardsAgo) === JSON.stringify(currentBoard)) {
-    fadeOutThisBoard();
+    objectToFlickScreen.flicking = true;
+
+    activateScreenFlick(flickThisBoard);
+
     return true;
   }
 

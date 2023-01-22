@@ -1,4 +1,4 @@
-import { mapNextTurn } from "./mapNextTurn.js";
+import { mapNextTurn } from "./index.js";
 describe("Given a mapNextTurn function", () => {
   describe("When applying the algorith to the starting position [0, 1, 0, 0, 1, 0, 0, 1, 0]", () => {
     test("Then it should return the resulting position [0, 0, 0, 1, 1, 1, 0, 0, 0]", () => {

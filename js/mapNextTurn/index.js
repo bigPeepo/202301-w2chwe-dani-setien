@@ -1,5 +1,4 @@
 import countAdjacentAliveCells from "../countAdjacentAliveCells/countAdjacentAliveCells.js";
-import makeCartesianBoard from "../makeCartesianBoard/makeCartesianBoard.js";
 
 export const cellStatusNextTurn = (cellStatus, position, board) => {
   const adjacentAliveCellsCount = countAdjacentAliveCells(position, board);
@@ -21,18 +20,9 @@ export const cellStatusNextTurn = (cellStatus, position, board) => {
   return cellStatus;
 };
 
-export const mapNextTurn = (board) =>
-  board.map((cell, position, board) =>
+export const mapNextTurn = (board) => {
+  board = board.map((cell, position, board) =>
     cellStatusNextTurn(cell, position, board)
   );
-
-const board = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0,
-  1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-];
-console.table(makeCartesianBoard(board));
-const newBoard = mapNextTurn(board);
-console.table(makeCartesianBoard(newBoard));
-
-const nextBoard = mapNextTurn(newBoard);
-console.table(makeCartesianBoard(nextBoard));
+  return board;
+};

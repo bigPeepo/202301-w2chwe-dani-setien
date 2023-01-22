@@ -12,9 +12,12 @@ let seedBoard = randomSeedRowLength(9);
 
 insertBoardOnHtml(makeCartesianBoard(seedBoard), main);
 
-// eslint-disable-next-line no-unused-vars
 const makeTheBoardEvolve = setInterval(() => {
   seedBoard = mapNextTurn(seedBoard);
 
   mutateBoardOnHtml(makeCartesianBoard(seedBoard));
 }, 250);
+
+export const stopCalculating = () => {
+  clearInterval(makeTheBoardEvolve);
+};

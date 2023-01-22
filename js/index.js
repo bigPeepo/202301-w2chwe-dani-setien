@@ -6,9 +6,9 @@ import { randomSeedRowLength } from "./randomSeed/index.js";
 
 export const colorBackground = "#f5f2f0";
 export const colorAliveCell = "#696f6a";
+export const main = document.getElementsByClassName("main");
 
 let seedBoard = randomSeedRowLength(9);
-const main = document.getElementsByClassName("main");
 
 insertBoardOnHtml(makeCartesianBoard(seedBoard), main);
 

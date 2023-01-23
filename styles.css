@@ -59,7 +59,7 @@ ul > li {
 }
 
 #fadeout {
-  height: 55vh;
+  height: 100vh;
   width: 100vw;
   flex: 1;
   position: absolute;
